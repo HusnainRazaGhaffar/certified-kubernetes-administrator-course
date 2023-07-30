@@ -74,6 +74,19 @@ So, since as I mentioned, `crictl` can be used to connect to any CRI compatible 
 
 ![](../../images/02-03-09.png)
 
+Note: In the previous versions of Kubernetes prior to Kubernetes version 1.24 the `crictl` tool connects to runtime endpoints in following default order
+- unix:///var/run/dockershim.sock
+- unix:///run/containerd/containerd.sock
+- unix:///run/crio/crio.sock
+- unix:///var/run/cri-dockerd.sock
+
+However with the release of Kubernetes version 1.24 a significant change was made. The dockershim.sock was replaced with cri-dockerd.sock. As a result the updated default endpoint of `crictl` tool were changed to the following
+- unix:///run/containerd/containerd.sock
+- unix:///run/crio/crio.sock
+- unix:///var/run/cri-dockerd.sock
+
+This change was implemented in response to the deprecation of previous default settings. Now users are encouraged to manually set the endpoint using `crictl --runtime-endpoint` or `export CONTAINER_RUNTIME_ENDPOINT` These changes are documented the Kubernetes `critool` github repository
+
 So to summarize we have the `ctr` command line utility that comes with containerd and works with containerd which is used for debugging purposes only and has a very limited set of features, so ideally you wouldn’t be using this at all so you can kind of ignore this. Then we have the `nerdctl` CLI which is again from the containerd community but this is a Docker-like CLI for containerd used for general purpose to create containers and supports the same or more features than Docker CLI, so it’s something that I think we’ll be using a lot more going forward. Then we have the `crictl` utility which is from the Kubernetes community and mainly used to interact with CRI compatible runtimes, so it’s not just for containerd – this can be used for all CRI supported runtimes – again this is mainly to be used for debugging purposes.
 
 ![](../../images/02-03-10.png)
