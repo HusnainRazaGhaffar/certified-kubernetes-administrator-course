@@ -50,10 +50,72 @@
         Syntax: To view more commands. Run etcdctl without any arguments
         $ ./etcdctl
         ```
-
         ![etcdctl](../../images/etcdctl.PNG)
 
-       K8s Reference Docs:
+## ETCD Versions
+- `etcd` version 2 and version 3 is quite different, there APIs are quite different
+- To check the version of v2 of `etcd` use following command. In the output we can see API version is 2 thus `etcd` is of version 2
+    
+    ```yaml
+    ./etcdctl --version
+    etcdctl version: 3.3.11
+    API version: 2
+    ```
+    
+- To check the version of v3 of `etcd` use following command. In the output we can see API version is 3 thus `etcd` is of version 3
+    
+    ```bash
+    ./etcdctl version
+    etcdctl version: 3.3.11
+    API version: 3.3
+    ```
+    
+- To use `etcdctl` from v2 to v3
+    
+    ```bash
+    ETCDCTL_API=3 ./etcdctl version
+    etcdctl version: 3.3.11
+    API version: 3.3
+    
+    # OR
+    
+    export ETCDCTL_API=3
+    ./etcdctl version
+    etcdctl version: 3.3.11
+    API version: 3.3
+    ```
+    
+- `etcdctl` client comes with `etcd` that can be used to store and retrieve data from `etcd` datastore
+- To store key1 having value1 in `etcd` v2
+    
+    ```bash
+    ./etcdctl set key1 value1
+    ```
+    
+- To store key1 having value1 in `etcd` v3
+    
+    ```bash
+    ./etcdctl put key1 value1
+    ```
+    
+- To get the value of key1 from `etcd` v2 or v3
+    
+    ```bash
+    ./etcdctl get key1
+    ```
+    
+- `etcd` in Kubernetes stores the information about
+    - Nodes
+    - PODs
+    - Configs
+    - Secrets
+    - Accounts
+    - Roles
+    - Bindings
+    - Others
+
+
+K8s Reference Docs:
        - https://kubernetes.io/docs/concepts/overview/components/
        - https://etcd.io/docs/
        - https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
