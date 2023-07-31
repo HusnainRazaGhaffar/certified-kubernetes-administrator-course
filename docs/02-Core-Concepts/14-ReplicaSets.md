@@ -14,8 +14,11 @@ In this section, we will take a look at the below
   ![rc1](../../images/rc1.PNG)
   
 ## Difference between ReplicaSet and Replication Controller
+- Replication controller is one of the controllers object of Kubernetes that makes sure that the specified number of pods must be running at all time
 - **`Replication Controller`** is the older technology that is being replaced by a **`ReplicaSet`**.
 - **`ReplicaSet`** is the new way to setup replication.
+- Major difference between Replication Controller and Replica Set is the Replica Set can also manage/monitor on pods that were not created by it.
+- In Replica Set `selector` is mandatory where as in Replication Controller it is not compulsory
 
 ## Creating a Replication Controller
 
