@@ -105,21 +105,6 @@ In this section, we will take a look at the below
     ```
     $ kubectl get pods
     ```
-  - To increase the number of the replicas, update the replica parameter in above definition and use the following command
-      
-      ```bash
-      kubectl replace -f replicaset-definition.yaml
-      ```
-      
-  - Another way to increase the number of the replicas use the following command. **NOTE:** It will not update the replica set definition file
-      
-      ```bash
-      kubectl scale --replicas=6 -f replicaset-definition.yaml
-      
-      # OR
-      
-      kubectl scale replicaset myapp-replicaset --replicas 6
-      ```
 
     ![rs1](../../images/rs1.PNG)
     
@@ -159,11 +144,11 @@ In this section, we will take a look at the below
   ```
   $ kubectl apply -f replicaset-definition.yaml
   ```
-  - Second way is to use **`kubectl scale`** command.
+  - Second way is to use **`kubectl scale`** command. **NOTE:** It will not update the replica set definition file
   ```
   $ kubectl scale --replicas=6 -f replicaset-definition.yaml
   ```
-  - Third way is to use **`kubectl scale`** command with type and name
+  - Third way is to use **`kubectl scale`** command with type and name.
   ```
   $ kubectl scale --replicas=6 replicaset myapp-replicaset
   ```
