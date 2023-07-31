@@ -41,6 +41,38 @@ Lets now take a look to create a nginx pod using **`kubectl`**.
 
  ![kubectl](../../images/kubectl.PNG)
 
+## Pods Yaml
+- A Kubernetes resource definition file always contains these top level fields
+    
+    ```yaml
+    apiVersion:
+    kind:
+    metadata:
+    spec:
+    ```
+
+- In Kubernetes a pod definition file `pod-definition.yaml` has following fields
+    
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+    ```
+
+- To create the pod using above definition, use following command
+    
+    ```yaml
+    kubectl create -f pod-definition.yaml
+    ```
+
 K8s Reference Docs:
 - https://kubernetes.io/docs/concepts/workloads/pods/pod/
 - https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
