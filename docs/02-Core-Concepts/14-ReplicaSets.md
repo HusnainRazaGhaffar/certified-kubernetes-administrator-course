@@ -142,7 +142,7 @@ In this section, we will take a look at the below
 ```
 
   ```
-  $ kubectl apply -f replicaset-definition.yaml
+  $ kubectl replace -f replicaset-definition.yaml
   ```
   - Second way is to use **`kubectl scale`** command. **NOTE:** It will not update the replica set definition file
   ```
