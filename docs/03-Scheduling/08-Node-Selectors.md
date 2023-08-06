@@ -2,24 +2,9 @@
   - Take me to [Video Tutorial](https://kodekloud.com/topic/node-selectors/)
 
 In this section, we will take a look at Node Selectors in Kubernetes
-
-#### We add new property called Node Selector to the spec section and specify the label.
-- The scheduler uses these labels to match and identify the right node to place the pods on.
-  ```
-  apiVersion: v1
-  kind: Pod
-  metadata:
-   name: myapp-pod
-  spec:
-   containers:
-   - name: data-processor
-     image: data-processor
-   nodeSelector:
-    size: Large
-  ```
-![nsel](../../images/nsel.PNG)
-  
-- To label nodes
+- If we want a pod to be deployed to a specific node we can add a property `NodeSelector` in pod’s manifest while creating it so that scheduler will then deploy the pod on the node that matches the key value pair of what’s mentioned in NodeSelector
+- For node selector to work, it is necessary that nodes must already have those labels
+- To add label to a node
 
   Syntax
   ```
@@ -29,10 +14,10 @@ In this section, we will take a look at Node Selectors in Kubernetes
   ```
   $ kubectl label nodes node-1 size=Large
   ```
-  
+ 
 ![ln](../../images/ln.PNG)
   
-- To create a pod definition
+- To apply node selector to the pod, when creating a pod using yaml manifest file, add `NodeSelector` in pod’s definition
   ```
   apiVersion: v1
   kind: Pod
