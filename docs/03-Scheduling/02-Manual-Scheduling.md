@@ -29,7 +29,7 @@ In this section, we will take a look at **`Manually Scheduling`** a **`POD`** on
     
     ![sc2](../../images/sc2.PNG)
     
-  - Another way
+  - Once a Pod is created, Kubernetes won't allow us to add `nodeName` property in it's manifest file so another way us to create a `binding` object and send a post request to the pod binding API with the data set to the binding object in a JSON format. So you must convert the binding object YAML file into its equivalent JSON format.
     ```
     apiVersion: v1
     kind: Binding
