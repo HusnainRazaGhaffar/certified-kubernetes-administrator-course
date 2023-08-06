@@ -5,6 +5,8 @@ In this section, we will take a look at taints and tolerations.
 - Pod to node relationship and how you can restrict what pods are placed on what nodes.
 
 #### Taints and Tolerations are used to set restrictions on what pods can be scheduled on a node. 
+- Taint is a label of nodes that repels the pods if they don’t have matching toleration label
+- Toleration label on the pod ensures that the pod *can* be deployed to the node that has the matching taint label
 - Only pods which are tolerant to the particular taint on a node will get scheduled on that node.
 
   ![tandt](../../images/tandt.PNG)
@@ -23,10 +25,10 @@ In this section, we will take a look at taints and tolerations.
   ```
   
 - The taint effect defines what would happen to the pods if they do not tolerate the taint.
-- There are 3 taint effects
-  - **`NoSchedule`**
-  - **`PreferNoSchedule`**
-  - **`NoExecute`**
+- There are 3 taint effects that the nodes can have,
+  - **`NoSchedule`** - No pod will be scheduled on the node if they don’t have matching toleration
+  - **`PreferNoSchedule`** - Kubernetes will try not to schedule any pod on the node but in certain cases it can schedule as well
+  - **`NoExecute`** - Kubernetes will not schedule any pod if they don’t have matching toleration as well as remove existing running pod if they don’t have matching toleration
   
   ![tn](../../images/tn.PNG)
   
