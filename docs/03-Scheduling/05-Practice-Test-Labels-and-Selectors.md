@@ -11,7 +11,11 @@ Solutions to Practice Test - Labels and Selectors
     kubectl get pods --selector env=dev
     ```
 
-    Count the pods (if any)
+    Count the pods (if any). To avoid counting manually, use `--no-headers` like shown below
+
+    ```
+    kubectl get pods --selector env=dev --no-headers | wc -l
+    ```
 
     </details>
 
