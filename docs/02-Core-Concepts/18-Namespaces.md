@@ -5,7 +5,8 @@ In this section, we will take a look at **`Namespaces`**
 
 So far in this course we have created **`Objects`** such as **`PODs`**, **`Deployments`** and **`Services`** in our cluster. Whatever we have been doing we have been doing in a **`NAMESPACE`**.
 - This namespace is the **`default`** namespace in kubernetes. It is automatically created when kubernetes is setup initially.
-
+- Kubernetes by default creates a namespace named `default` that we can use and creates another kube-system that Kubernetes uses for it’s internal pods
+- 
   ![ns](../../images/ns.PNG)
  
 - You can create your own namespaces as well.
@@ -16,6 +17,7 @@ So far in this course we have created **`Objects`** such as **`PODs`**, **`Deplo
   ```
   $ kubectl get pods
   ```
+- Resources in one namespace can access other resources simply by specifying their name like `db-service` but to access a resource in another namespace the resource must specify the full name as `db-service.other-namespace.svc.cluster.local` where `svc` is the service and `cluster.local` is the domain of local cluster
 - To list the pods in another namespace. Use **`kubectl get pods`** command along with the **`--namespace`** flag or argument.
   ```
   $ kubectl get pods --namespace=kube-system
@@ -89,8 +91,10 @@ metadata:
   ```
   $ kubectl get pods --all-namespaces
   ```
+- We can also instruct kubectl to show us resources from all namespaces by `kubectl get all -A` or `kubectl get all --all-namespaces`
+
   ![ns12](../../images/ns12.PNG)
-  
+
 - To limit resources in a namespace, create a resource quota. To create one start with **`ResourceQuota`** definition file.
 ```
 apiVersion: v1
