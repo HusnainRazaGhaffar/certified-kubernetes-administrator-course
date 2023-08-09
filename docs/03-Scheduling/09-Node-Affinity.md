@@ -84,11 +84,11 @@ In this section, we will talk about "Node Affinity" feature in kubernetes.
 
 ## Node Affinity Types
 - Available
-  - requiredDuringSchedulingIgnoredDuringExecution
-  - preferredDuringSchedulingIgnoredDuringExecution
+  - requiredDuringSchedulingIgnoredDuringExecution - During Scheduling the pod Affinity match is required but after the pod starts it doesn’t matter
+  - preferredDuringSchedulingIgnoredDuringExecution - During Scheduling the pod Affinity match is preferred if it doesn’t match it can be ignored but after the pod starts it doesn’t matter
 - Planned
-  - requiredDuringSchedulingRequiredDuringExecution
-  - preferredDuringSchedulingRequiredDuringExecution
+  - requiredDuringSchedulingRequiredDuringExecution - During Scheduling the pod Affinity match is required and after the pod starts it is also required
+  - preferredDuringSchedulingRequiredDuringExecution - During Scheduling the pod Affinity match is preferred if it doesn’t match it can be ignored but after the pod starts it is required
   
   ![nat](../../images/nat.PNG)
   
