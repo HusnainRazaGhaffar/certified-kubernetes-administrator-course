@@ -46,7 +46,7 @@ In this section we will take a look at Resource Limits
   ![rr-pod](../../images/rr-pod.PNG) 
    
 ## Resources - Limits
-- In Kubernetes a pod can consume as mush CPU and memory resources as are available on the node but default resource limits are 1 vCPU and 512 Mebibytes of RAM. To restrict a pod from doing that, we can add limits under the resource section
+- In Kubernetes a pod can consume as mush CPU and memory resources as are available on the node. To restrict a pod from doing that, we can add limits under the resource section
   
   ![rsl](../../images/rsl.PNG)
 
@@ -81,9 +81,41 @@ In this section we will take a look at Resource Limits
 - When a pod tries to consume more CPU then what’s mentioned in its limits, Kubernetes tries to throttle its CPU. On the other hand when pod tries to consume more memory then whats allowed in its limits, Kubernetes will let that happen but will evict the pod if it happens again and again.
 
    ![el](../../images/el.PNG)
-   
-  
+
+## Combinition of Requests and Limits
+- When requests are not set and only limits are set, Kubernetes will apply the requests same as limit values
+- When requests and limits are set, Kubernetes will guarantee that pod will have the resources requested but will not allow to use more then the limits set. In this way even if free CPU/RAM are available but kubernetes will not allow the pod to use it
+- When requests are set but not limits are set, that's the recommended approach where kubernetes will gurantee the pod to have requested resources but then pod can use available resources but because other pods will also have requests set, resource intensive pod won't eat up other's resources
+
+## Default Requests and Limits
+- To set default requests and limits for all containers of pods we can define limit ranges
+- These limits are applied when a pod is created. So if you create or change these limits it won't affect the existing pods, it will only affect the newer pods created after the limits are applied or changed.
+- You define a LimitRange with this manifest as follows,
+
+```
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-resource-constraint
+spec:
+  limits:
+  - default: # this section defines default limits
+      cpu: 500m
+    defaultRequest: # this section defines default requests
+      cpu: 500m
+    max: # max and min define the limit range
+      cpu: "1"
+    min:
+      cpu: 100m
+    type: Container
+```
+
+## Resource Quotas
+- We can apply hard limits on the resources that can be used by all pods by applying resource quotas on a namespace
+- Here is the reference https://kubernetes.io/docs/concepts/policy/resource-quotas/
+
 #### K8s Reference Docs:
 - https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+- https://kubernetes.io/docs/concepts/policy/limit-range/
   
   
