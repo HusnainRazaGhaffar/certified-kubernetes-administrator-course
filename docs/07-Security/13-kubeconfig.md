@@ -13,6 +13,7 @@ In this section, we will take a look at kubeconfig in kubernetes
   ```
   $ kubectl get pods --kubeconfig config
   ```
+- By default kubectl looks for this file under `$HOME/.kube/config`
   
 ## Kubeconfig File
 - The kubeconfig file has 3 sections
