@@ -77,11 +77,12 @@ In this section, we will take a look at RBAC
 #### What if you being a user would like to see if you have access to a particular resource in the cluster.
 ## Check Access
 
-- You can use the kubectl auth command
+- You can use the kubectl auth command to check if you have access to a particular action on an API
   ```
   $ kubectl auth can-i create deployments
   $ kubectl auth can-i delete nodes
   ```
+- You can also use the kubectl auth command to check if another user `dev-user` have access to a particular action on an API
   ```
   $ kubectl auth can-i create deployments --as dev-user
   $ kubectl auth can-i create pods --as dev-user
