@@ -11,5 +11,7 @@ In this section, we will take a look at TLS in kubernetes
   
 #### Let's look at the different components within the k8s cluster and identify the various servers and clients and who talks to whom.
 
+  ![tls-services](../../images/kubernetes-tls-services.PNG)
+
   ![certs](../../images/certs.PNG)
   
