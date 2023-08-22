@@ -37,6 +37,17 @@ $ exec bash
 $ netstat -nltp
 ```
 
+## Listening Ports of Kubernetes Master (Control Plane)
+- kube-apiserver listens on 6443
+- kubelet (if installed on master) listens on 10250
+- Kube-scheduler listens on 10251
+- kube-controller-manager listens on 10252
+- etcd listens on port 2379
+- If etcd is in high availability then port 2380 must also open on all etcd servers
+
+## Listening Ports of Kubernetes Worker Nodes
+- kubelet listens on 10250
+- Worker node exposes different services on ports 30,000 to 32,767
 
 
 #### References Docs
