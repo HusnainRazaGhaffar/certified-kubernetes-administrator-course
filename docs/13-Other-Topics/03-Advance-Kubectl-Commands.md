@@ -42,6 +42,16 @@
     ```
 
   #### Loops - Range
+  - To get the name of node and count of the cpu of node in the cluster:
+
+    ```
+    kubectl get pods -o=jsonpath='{.items[*].metadata.name}{"\n"}{.items[*].status.capacity.cpu}'
+    ```
+  - Using JsonPath to print the output in a separate column (one column with node name and other with CPU count):
+
+    ```
+    kubectl get pods -o=jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.status.capacity.cpu}{"\n"}{end}'
+    ```
 
   - To print the output in a separate column (one column with node name and other with CPU count):
 
@@ -60,5 +70,5 @@
     ![loop](../../images/loop.PNG)
 
     ```
-    kubectl get nodes --sort-by=..status.capacity.cpu
+    kubectl get nodes --sort-by=.status.capacity.cpu
     ```
