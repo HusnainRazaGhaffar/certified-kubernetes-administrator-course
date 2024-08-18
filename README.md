@@ -14,7 +14,7 @@ These are notes from the [Certified Kubernetes Administrator Course](https://kod
 
   - [01-Core-Concepts-Section-Introduction](docs/02-Core-Concepts/01-Core-Concepts-Section-Introduction.md)
   - [02-Cluster-Architecture](docs/02-Core-Concepts/02-Cluster-Architecture.md)
-  - [03-Docker-vs-ContainerD](/docs/02-Core-Concepts/03-Docker-vs-ContainerD.md)
+  - [03-Docker-vs-ContainerD](docs/02-Core-Concepts/03-Docker-vs-ContainerD.md)
   - [04-ETCD-For-Beginners](docs/02-Core-Concepts/04-ETCD-For-Beginners.md)
   - [05-ETCD-in-Kubernetes](docs/02-Core-Concepts/05-ETCD-in-Kubernetes.md)
   - [06-Kube-API-Server](docs/02-Core-Concepts/06-Kube-API-Server.md)
@@ -205,6 +205,8 @@ These are notes from the [Certified Kubernetes Administrator Course](https://kod
   - [03-Provision-VMs-with-Vagrant](docs/11-Install-Kubernetes-the-kubeadm-way/03-Provision-VMs-with-Vagrant.md)
   - [04-Demo-Deployment-with-Kubeadm](docs/11-Install-Kubernetes-the-kubeadm-way/04-Demo-Deployment-with-Kubeadm.md)
   - [05-Practice-Test-Deploy-Kubernetes-Cluster-using-Kubeadm](docs/11-Install-Kubernetes-the-kubeadm-way/05-Practice-Test-Deploy-Kubernetes-Cluster-using-Kubeadm.md)
+  - [BONUS 1 - Various kubeadm cluster configurations](./kubeadm-clusters) - Including for Apple M1/M2!
+  - [BONUS 2 - Installing Managed Clusters in Cloud Playgrounds](./managed-clusters/)
 
 
 - [12-Troubleshooting](docs/12-Troubleshooting)
@@ -242,3 +244,10 @@ These are notes from the [Certified Kubernetes Administrator Course](https://kod
   - [04-CKA-MockExam-2-Solution](docs/15-Mock-Exams/04-CKA-MockExam-2-Solution.md)
   - [05-Mock-Exam-3](docs/15-Mock-Exams/05-Mock-Exam-3.md)
   - [06-CKA-MockExam-3-Solution](docs/15-Mock-Exams/06-CKA-MockExam-3-Solution.md)
+
+- [16-Ultimate-Mocks](docs/16-Ultimate-Mocks/)
+
+- [17-Tips-and-Tricks](docs/17-tips-and-tricks/)
+  - [01-Server for testing network policies](docs/17-tips-and-tricks/docs/01-server-for-testing-network-policies.md)
+  - [02-Client-for-testing-network-things](docs/17-tips-and-tricks/docs/02-client--for-testing-network-things.md)
+
